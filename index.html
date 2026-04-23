@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ТермаРОН — Автономный тепловой пункт для отопления и ГВС</title>
+  <meta name="description" content="Российская разработка ЭкоМИРТ для автономного отопления и горячего водоснабжения. В 3 раза эффективнее электрокотлов на ТЭНах. Для объектов от дачи до торгового центра.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =============================================
+     NAVBAR
+============================================= -->
+<nav class="navbar" id="navbar" aria-label="Основная навигация">
+  <div class="container">
+    <div class="navbar__inner">
+      <a href="#" class="navbar__logo">Терма<span>РОН</span></a>
+      <nav class="navbar__nav" aria-label="Разделы страницы">
+        <a href="#advantages">Преимущества</a>
+        <a href="#comparison">Сравнение</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#lineup">Форматы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <button class="btn btn--primary navbar__cta-btn" onclick="openModal('nav')">Оставить заявку</button>
+      <button class="navbar__burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="navbar__drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Меню навигации">
+  <button class="navbar__drawer-close" id="drawerClose" aria-label="Закрыть меню">×</button>
+  <a href="#advantages" onclick="closeDrawer()">Преимущества</a>
+  <a href="#comparison" onclick="closeDrawer()">Сравнение</a>
+  <a href="#cases" onclick="closeDrawer()">Кейсы</a>
+  <a href="#lineup" onclick="closeDrawer()">Форматы</a>
+  <a href="#contacts" onclick="closeDrawer()">Контакты</a>
+  <button class="btn btn--primary btn--lg" onclick="closeDrawer(); openModal('mobile-nav')">Оставить заявку</button>
+</div>
+
+<!-- =============================================
+     SECTION 1 — HERO
+============================================= -->
+<section class="hero" id="top" aria-label="Главный экран">
+  <div class="container">
+    <div class="hero__grid">
+      <div class="hero__content">
+        <span class="eyebrow">Российская разработка ЭкоМИРТ</span>
+        <h1 class="hero__title">Автономный тепловой пункт ТермаРОН</h1>
+        <div class="hero__text">
+          <p>Российская разработка компании ЭкоМИРТ для отопления и горячего водоснабжения.</p>
+          <p>ТермаРОН позволяет за счет физико-химических процессов с водой генерировать тепло в 3 раза эффективнее, чем электрокотлы на ТЭНах, что может конкурировать по стоимости с газовым отоплением.</p>
+        </div>
+        <div class="hero__tags" aria-label="Основное применение ТермаРОН">
+          <div class="hero__tag">
+            <div class="hero__tag-dot" aria-hidden="true">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            Отопление любых помещений — от дачи до крупного склада или торгового центра
+          </div>
+          <div class="hero__tag">
+            <div class="hero__tag-dot" aria-hidden="true">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            ГВС — горячее водоснабжение
+          </div>
+        </div>
+        <button class="btn btn--primary btn--lg" onclick="openModal('hero')">Оставить заявку</button>
+      </div>
+      <div class="hero__img img-ph" role="img" aria-label="Фотография оборудования ТермаРОН">
+        <svg class="img-ph__icon" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="12" width="40" height="32" rx="3" stroke="#4a6080" stroke-width="2"/>
+          <circle cx="28" cy="28" r="8" stroke="#4a6080" stroke-width="2"/>
+          <circle cx="28" cy="28" r="3" fill="#4a6080"/>
+          <path d="M20 12V8M36 12V8" stroke="#4a6080" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Фото оборудования ТермаРОН
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 2 — ADVANTAGES
+============================================= -->
+<section class="section" id="advantages" aria-label="Ключевые преимущества">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Преимущества</span>
+      <h2>Ключевые преимущества перед аналогами</h2>
+    </div>
+    <div class="adv__cards">
+      <div class="adv-card fade-up">
+        <div class="adv-card__icon" aria-hidden="true">
+          <!-- Shield icon -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L4 6v7c0 5.25 3.85 10.15 9 11.35C18.15 23.15 22 18.25 22 13V6L13 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M9 13l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Надёжный</h3>
+        <p>Испытания в реальных условиях от крайнего севера до Сочи. Стабильная работа при −43°C и в условиях нестабильных электрических сетей.</p>
+      </div>
+      <div class="adv-card fade-up">
+        <div class="adv-card__icon" aria-hidden="true">
+          <!-- Lightning icon -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 2L5 15h8l-2 9 10-13h-8l2-9z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Экономичный</h3>
+        <p>Благодаря современным технологиям устройство потребляет втрое меньше электроэнергии, чем аналогичные модели на ТЭНах, при той же тепловой мощности.</p>
+      </div>
+      <div class="adv-card fade-up">
+        <div class="adv-card__icon" aria-hidden="true">
+          <!-- Check-circle icon -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="13" cy="13" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 13l4 4 6-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Безопасный</h3>
+        <p>Без вредных выбросов, накипи и избыточного давления. Полное исключение вероятности взрыва или пожара. Чистое, экологичное тепло.</p>
+      </div>
+    </div>
+    <div class="adv__extra fade-up">
+      <div class="adv__extra-label">Дополнительные свойства</div>
+      <ul class="adv__extra-list" role="list">
+        <li class="adv__extra-item">Не требует больших электрических мощностей</li>
+        <li class="adv__extra-item">Отсутствие вредных примесей газов, дыма, пара и накипи в атмосфере</li>
+        <li class="adv__extra-item">Полное исключение вероятности взрыва или пожара</li>
+        <li class="adv__extra-item">Возможность дистанционного управления на базе технологии GSM</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 3 — COMPARISON
+============================================= -->
+<section class="section section--light" id="comparison" aria-label="Сравнение с другими типами котлов">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Сравнение</span>
+      <h2>Сравнение с другими типами котлов</h2>
+    </div>
+    <div class="cmp__table-wrap" role="region" aria-label="Таблица сравнения котлов" tabindex="0">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th scope="col">Вид котла</th>
+            <th scope="col">Расход топлива на 100 кВт тепла</th>
+            <th scope="col">Цена за ед., руб. с доставкой</th>
+            <th scope="col">Стоимость 100 кВт тепла, руб.</th>
+            <th scope="col">Стоимость 1 кВт тепла, руб.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Газовый (природный газ)</td>
+            <td>11 м³</td>
+            <td>~8 руб/м³</td>
+            <td>~88</td>
+            <td>~0,88</td>
+          </tr>
+          <tr>
+            <td>Газовый (сжиженный газ)</td>
+            <td>9 кг</td>
+            <td>~68 руб/кг</td>
+            <td>~612</td>
+            <td>~6,12</td>
+          </tr>
+          <tr>
+            <td>Дизельный</td>
+            <td>10 л</td>
+            <td>~70 руб/л</td>
+            <td>~700</td>
+            <td>~7,00</td>
+          </tr>
+          <tr>
+            <td>Пеллетный</td>
+            <td>25 кг</td>
+            <td>~14 руб/кг</td>
+            <td>~350</td>
+            <td>~3,50</td>
+          </tr>
+          <tr>
+            <td>Угольный</td>
+            <td>20 кг</td>
+            <td>~12 руб/кг</td>
+            <td>~240</td>
+            <td>~2,40</td>
+          </tr>
+          <tr>
+            <td>Электрический (ТЭН)</td>
+            <td>100 кВт·ч</td>
+            <td>~6 руб/кВт·ч</td>
+            <td>~600</td>
+            <td>~6,00</td>
+          </tr>
+          <tr class="cmp--highlight">
+            <td>Молекулярный (ТермаРОН)</td>
+            <td>~33 кВт·ч</td>
+            <td>~6 руб/кВт·ч</td>
+            <td>~198</td>
+            <td>от 1,8</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cmp__notes">
+      <p>* Все данные указаны усреднёнными, сильно может варьироваться от объекта и от региона</p>
+      <p>** Расчёт стоимости 1 кВт тепла не учитывает логистику, хранение топлива</p>
+    </div>
+    <p style="font-size:15px; color:var(--text-sec); margin-bottom:32px; max-width:680px;">
+      ТермаРОН эффективно решает проблемы высокой эксплуатационной стоимости, затрат на хранение топлива и оплату труда.
+    </p>
+    <div class="cmp__vs">
+      <div class="vs-card vs-card--other fade-up">
+        <div class="vs-card__title">Прочие котлы</div>
+        <ul class="vs-card__list" role="list">
+          <li class="vs-item">ТЭН — оплачиваете дорогие счета</li>
+          <li class="vs-item">Пеллеты — высокие трудозатраты и счета</li>
+          <li class="vs-item">Сжиженный газ — оплачиваете дорогие счета</li>
+          <li class="vs-item">Дизельное топливо — дорогие счета, высокие трудозатраты</li>
+        </ul>
+      </div>
+      <div class="vs-card vs-card--terma fade-up">
+        <div class="vs-card__title">ТермаРОН</div>
+        <ul class="vs-card__list" role="list">
+          <li class="vs-item">Полная безопасность</li>
+          <li class="vs-item">Счета в 3 раза меньше</li>
+          <li class="vs-item">Низкие трудозатраты</li>
+          <li class="vs-item">Полный контроль над работой</li>
+          <li class="vs-item">Управление через GSM / Wi-Fi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 4 — WHERE APPLIED
+============================================= -->
+<section class="section" id="applied" aria-label="Где применяется ТермаРОН">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Применение</span>
+      <h2>Где применяется ТермаРОН</h2>
+    </div>
+    <div class="applied__grid">
+      <div class="applied-card fade-up">
+        <div class="applied-card__icon" aria-hidden="true">
+          <!-- Flame/heat icon -->
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 4C18 4 10 12 10 20a8 8 0 0016 0c0-4-2-7-4-9-1 3-2 5-4 5 0-4 0-8 0-12z" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linejoin="round" fill="none"/>
+            <path d="M14 26c0 2.2 1.8 4 4 4s4-1.8 4-4" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Отопление</h3>
+          <p>Любых помещений — от дачи до крупного склада или торгового центра</p>
+        </div>
+      </div>
+      <div class="applied-card fade-up">
+        <div class="applied-card__icon" aria-hidden="true">
+          <!-- Water drop icon -->
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 4C18 4 8 16 8 22a10 10 0 0020 0C28 16 18 4 18 4z" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linejoin="round" fill="none"/>
+            <path d="M13 24a5 5 0 005 4" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h3>ГВС</h3>
+          <p>Горячее водоснабжение — автономно, экономично, без центральных сетей</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 5 — OBJECT TYPES
+============================================= -->
+<section class="section section--light" id="objects" aria-label="На каких объектах применяется">
+  <div class="container">
+    <div class="section-head section-head--center fade-up">
+      <span class="eyebrow">Объекты</span>
+      <h2>На каких объектах</h2>
+    </div>
+    <div class="objects__grid">
+      <div class="object-card fade-up">
+        <div class="object-card__icon" aria-hidden="true">
+          <!-- House icon -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12L13 3l10 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10v11h5v-6h4v6h5V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Дачи, коттеджи, многоквартирные дома</h3>
+      </div>
+      <div class="object-card fade-up">
+        <div class="object-card__icon" aria-hidden="true">
+          <!-- Cross/medical icon -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="3" width="6" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+            <rect x="3" y="10" width="20" height="6" rx="2" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Объекты здравоохранения, образования, промышленного, сельскохозяйственного назначения, оборонного комплекса и транспорта</h3>
+      </div>
+      <div class="object-card fade-up">
+        <div class="object-card__icon" aria-hidden="true">
+          <!-- Factory icon -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 22V10l6 4V10l6 4V6l8 6v10H3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="16" y="16" width="3" height="6" rx="0.5" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="7" y="16" width="3" height="4" rx="0.5" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3>Производственные объекты, склады, торговые центры, теплицы</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 6 — CLIENTS
+============================================= -->
+<section class="section" id="clients" aria-label="Нам доверяют">
+  <div class="container">
+    <div class="section-head section-head--center fade-up">
+      <span class="eyebrow">Клиенты</span>
+      <h2>Мы отапливаем</h2>
+    </div>
+    <p class="clients__intro fade-up">
+      Нашей технологии доверяют владельцы коммерческой недвижимости, которые внедрили котельные системы для обеспечения теплоснабжения ряда крупных зданий и сооружений.
+    </p>
+    <div class="clients__grid fade-up" role="list" aria-label="Список клиентов">
+      <div class="client-cell" role="listitem">Роснефть</div>
+      <div class="client-cell" role="listitem">КАНТ</div>
+      <div class="client-cell" role="listitem">Авион Внуково Hotel</div>
+      <div class="client-cell" role="listitem">Дикси</div>
+      <div class="client-cell" role="listitem">Пятёрочка</div>
+      <div class="client-cell" role="listitem">Магнит</div>
+      <div class="client-cell" role="listitem" style="grid-column: span 2;">Университет «Дубна»</div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 7 — CASES SLIDER
+============================================= -->
+<section class="section section--light" id="cases" aria-label="Реализованные объекты">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Кейсы</span>
+      <h2>Реализованные объекты</h2>
+    </div>
+    <div class="cases__slider-outer">
+      <div class="cases__slider" id="casesSlider" role="region" aria-label="Слайдер кейсов" aria-live="polite">
+        <div class="cases__track" id="casesTrack">
+
+          <!-- Case 1 -->
+          <article class="case-card" aria-label="Кейс 1 из 6">
+            <div class="case-card__img img-ph" role="img" aria-label="Авион Внуково Hotel">
+              <svg class="img-ph__icon" width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="6" y="8" width="28" height="24" rx="2" stroke="#5a7090" stroke-width="1.8"/><circle cx="20" cy="20" r="6" stroke="#5a7090" stroke-width="1.8"/></svg>
+              Авион Внуково Hotel
+            </div>
+            <div class="case-card__body">
+              <div class="case-card__num">Кейс 01 / 06</div>
+              <h3 class="case-card__title">Авион Внуково Hotel</h3>
+              <p class="case-card__desc">Бизнес-отель 4* в Московской области. Задача — автономное отопление и ГВС без подключения к газовой магистрали.</p>
+              <div class="case-card__specs">
+                <div class="case-spec"><span class="case-spec__label">Тип объекта:</span><span class="case-spec__val">Гостиница 4*, 2 500 м²</span></div>
+                <div class="case-spec"><span class="case-spec__label">Решение:</span><span class="case-spec__val">2× АТМ-ТЕРМ-3Ф, блочно-модульное исполнение</span></div>
+                <div class="case-spec"><span class="case-spec__label">Задача:</span><span class="case-spec__val">Отопление + ГВС без газа</span></div>
+              </div>
+              <div class="case-card__result">
+                <span class="case-card__result-tag">Результат</span>
+                <p>Снижение затрат на отопление более чем в 3 раза по сравнению с ТЭН-решением. Полная автономность без отдельной котельной.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case 2 -->
+          <article class="case-card" aria-label="Кейс 2 из 6">
+            <div class="case-card__img img-ph" role="img" aria-label="Торговый объект">
+              <svg class="img-ph__icon" width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="6" y="8" width="28" height="24" rx="2" stroke="#5a7090" stroke-width="1.8"/><circle cx="20" cy="20" r="6" stroke="#5a7090" stroke-width="1.8"/></svg>
+              Торговый объект, Подмосковье
+            </div>
+            <div class="case-card__body">
+              <div class="case-card__num">Кейс 02 / 06</div>
+              <h3 class="case-card__title">Торговый объект федеральной сети</h3>
+              <p class="case-card__desc">Магазин площадью 850 м². Задача — замена ТЭН-котла на экономичное решение без расширения электрической мощности.</p>
+              <div class="case-card__specs">
+                <div class="case-spec"><span class="case-spec__label">Тип объекта:</span><span class="case-spec__val">Торговый объект, 850 м²</span></div>
+                <div class="case-spec"><span class="case-spec__label">Решение:</span><span class="case-spec__val">АТМ-ТЕРМ-3Ф</span></div>
+                <div class="case-spec"><span class="case-spec__label">Задача:</span><span class="case-spec__val">Замена ТЭН-котла</span></div>
+              </div>
+              <div class="case-card__result">
+                <span class="case-card__result-tag">Результат</span>
+                <p>Экономия на отоплении от 60% без изменения электрической схемы объекта. Установка без выделения отдельного помещения.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case 3 -->
+          <article class="case-card" aria-label="Кейс 3 из 6">
+            <div class="case-card__img img-ph" role="img" aria-label="Университет Дубна">
+              <svg class="img-ph__icon" width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="6" y="8" width="28" height="24" rx="2" stroke="#5a7090" stroke-width="1.8"/><circle cx="20" cy="20" r="6" stroke="#5a7090" stroke-width="1.8"/></svg>
+              Университет «Дубна»
+            </div>
+            <div class="case-card__body">
+              <div class="case-card__num">Кейс 03 / 06</div>
+              <h3 class="case-card__title">Университет «Дубна»</h3>
+              <p class="case-card__desc">Учебный корпус университета. Модернизация системы теплоснабжения с сохранением существующей инфраструктуры.</p>
+              <div class="case-card__specs">
+                <div class="case-spec"><span class="case-spec__label">Тип объекта:</span><span class="case-spec__val">Учебный корпус, 3 800 м²</span></div>
+                <div class="case-spec"><span class="case-spec__label">Решение:</span><span class="case-spec__val">4× АТМ-ТЕРМ-3Ф</span></div>
+                <div class="case-spec"><span class="case-spec__label">Задача:</span><span class="case-spec__val">Модернизация теплоснабжения</span></div>
+              </div>
+              <div class="case-card__result">
+                <span class="case-card__result-tag">Результат</span>
+                <p>Стабильная работа на протяжении нескольких лет. Полное покрытие нужд корпуса в отоплении и горячем водоснабжении.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case 4 -->
+          <article class="case-card" aria-label="Кейс 4 из 6">
+            <div class="case-card__img img-ph" role="img" aria-label="Производственный объект Якутск">
+              <svg class="img-ph__icon" width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="6" y="8" width="28" height="24" rx="2" stroke="#5a7090" stroke-width="1.8"/><circle cx="20" cy="20" r="6" stroke="#5a7090" stroke-width="1.8"/></svg>
+              Производственный склад, Якутск
+            </div>
+            <div class="case-card__body">
+              <div class="case-card__num">Кейс 04 / 06</div>
+              <h3 class="case-card__title">Производственный склад, Якутск</h3>
+              <p class="case-card__desc">Крупный производственный объект в условиях Крайнего Севера. Экстремально низкие температуры и нестабильные электросети.</p>
+              <div class="case-card__specs">
+                <div class="case-spec"><span class="case-spec__label">Тип объекта:</span><span class="case-spec__val">Производственный склад, 2 400 м²</span></div>
+                <div class="case-spec"><span class="case-spec__label">Решение:</span><span class="case-spec__val">3× АТМ-ТЕРМ-3Ф, блочно-модульное</span></div>
+                <div class="case-spec"><span class="case-spec__label">Условия:</span><span class="case-spec__val">До −43°C, нестабильная сеть</span></div>
+              </div>
+              <div class="case-card__result">
+                <span class="case-card__result-tag">Результат</span>
+                <p>Стабильная работа при −43°C без аварийных остановок. Подтверждение надёжности в условиях Крайнего Севера.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case 5 -->
+          <article class="case-card" aria-label="Кейс 5 из 6">
+            <div class="case-card__img img-ph" role="img" aria-label="Тепличный комплекс">
+              <svg class="img-ph__icon" width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="6" y="8" width="28" height="24" rx="2" stroke="#5a7090" stroke-width="1.8"/><circle cx="20" cy="20" r="6" stroke="#5a7090" stroke-width="1.8"/></svg>
+              Тепличный комплекс, Краснодарский край
+            </div>
+            <div class="case-card__body">
+              <div class="case-card__num">Кейс 05 / 06</div>
+              <h3 class="case-card__title">Тепличный комплекс</h3>
+              <p class="case-card__desc">Круглогодичный тепличный комплекс в Краснодарском крае. Необходимо стабильное отопление и экономичное горячее водоснабжение.</p>
+              <div class="case-card__specs">
+                <div class="case-spec"><span class="case-spec__label">Тип объекта:</span><span class="case-spec__val">Теплица, 1 800 м²</span></div>
+                <div class="case-spec"><span class="case-spec__label">Решение:</span><span class="case-spec__val">2× АТМ-ТЕРМ-3Ф</span></div>
+                <div class="case-spec"><span class="case-spec__label">Задача:</span><span class="case-spec__val">Отопление + ГВС круглый год</span></div>
+              </div>
+              <div class="case-card__result">
+                <span class="case-card__result-tag">Результат</span>
+                <p>Себестоимость ГВС — 80 руб/м³ против 280 руб/м³ от централизованных сетей. Эффективность в 3,5 раза выше.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case 6 -->
+          <article class="case-card" aria-label="Кейс 6 из 6">
+            <div class="case-card__img img-ph" role="img" aria-label="Административный комплекс">
+              <svg class="img-ph__icon" width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="6" y="8" width="28" height="24" rx="2" stroke="#5a7090" stroke-width="1.8"/><circle cx="20" cy="20" r="6" stroke="#5a7090" stroke-width="1.8"/></svg>
+              Административный комплекс
+            </div>
+            <div class="case-card__body">
+              <div class="case-card__num">Кейс 06 / 06</div>
+              <h3 class="case-card__title">Административный комплекс</h3>
+              <p class="case-card__desc">Офисное здание без возможности подключения к газовой магистрали. Задача — автономное отопление с дистанционным управлением.</p>
+              <div class="case-card__specs">
+                <div class="case-spec"><span class="case-spec__label">Тип объекта:</span><span class="case-spec__val">Офисное здание, 1 600 м²</span></div>
+                <div class="case-spec"><span class="case-spec__label">Решение:</span><span class="case-spec__val">2× АТМ-ТЕРМ-3Ф</span></div>
+                <div class="case-spec"><span class="case-spec__label">Управление:</span><span class="case-spec__val">GSM / Wi-Fi дистанционно</span></div>
+              </div>
+              <div class="case-card__result">
+                <span class="case-card__result-tag">Результат</span>
+                <p>Срок окупаемости инвестиций — 1,5–3 года. Полный дистанционный контроль через GSM-модуль без присутствия персонала.</p>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /cases__track -->
+      </div><!-- /cases__slider -->
+
+      <div class="cases__controls">
+        <div class="cases__dots" role="tablist" aria-label="Навигация по кейсам" id="casesDots"></div>
+        <div class="cases__arrows">
+          <button class="cases__arrow" id="casesPrev" aria-label="Предыдущий кейс">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="cases__arrow" id="casesNext" aria-label="Следующий кейс">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div><!-- /cases__slider-outer -->
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 8 — NUMBERS
+============================================= -->
+<section class="section section--dark" id="numbers" aria-label="Подтверждение в цифрах">
+  <div class="container">
+    <div class="section-head section-head--white fade-up">
+      <span class="eyebrow eyebrow--dim">Цифры</span>
+      <h2>ТермаРОН — современный и эффективный метод обогрева</h2>
+      <p>Проверено от Якутска до Сочи — и вот результаты:</p>
+    </div>
+    <div class="numbers__grid">
+      <div class="numbers__list fade-up">
+        <div class="numbers__item">
+          <div class="numbers__check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="numbers__item-title">Снижение затрат на отопление</div>
+            <div class="numbers__item-text">Экономия от 60% до 80% по сравнению с другими видами котлов</div>
+          </div>
+        </div>
+        <div class="numbers__item">
+          <div class="numbers__check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="numbers__item-title">Рекордная энергоэффективность</div>
+            <div class="numbers__item-text">Коэффициент производительности (COP) от 2.5 до 5.1. В 3–7 раз эффективнее ТЭНовых котлов</div>
+          </div>
+        </div>
+        <div class="numbers__item">
+          <div class="numbers__check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="numbers__item-title">Выгода на горячей воде (ГВС)</div>
+            <div class="numbers__item-text">Себестоимость 80 руб/м³ против 280 руб/м³ от МОЭК. Эффективность в 3,5 раза выше</div>
+          </div>
+        </div>
+        <div class="numbers__item">
+          <div class="numbers__check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="numbers__item-title">Работа в экстремальных условиях</div>
+            <div class="numbers__item-text">Стабильная работа при −43°C (Якутск) и в условиях нестабильных электрических сетей</div>
+          </div>
+        </div>
+        <div class="numbers__item">
+          <div class="numbers__check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="numbers__item-title">Надёжность и бесперебойность</div>
+            <div class="numbers__item-text">С 2018 года на 96% объектов не было ни одного инцидента</div>
+          </div>
+        </div>
+      </div>
+      <div class="numbers__cards fade-up">
+        <div class="num-card">
+          <div class="num-card__val"><em>1,5 – 3</em> года</div>
+          <div class="num-card__label">Средний срок окупаемости (ROI)</div>
+        </div>
+        <div class="num-card">
+          <div class="num-card__val">COP <em>2,5 – 5,1</em></div>
+          <div class="num-card__label">Коэффициент производительности</div>
+        </div>
+        <div class="num-card">
+          <div class="num-card__val">от <em>1,8</em> руб/кВт</div>
+          <div class="num-card__label">Стоимость 1 кВт тепла (в зависимости от цены на электроэнергию)</div>
+        </div>
+      </div>
+      <div class="numbers__note">
+        ⚠ Приведённые данные основаны на материалах компании и результатах реализованных объектов. Экономические показатели варьируются в зависимости от объекта, региона и условий эксплуатации. Рекомендуется индивидуальный расчёт перед принятием решения.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 9 — ATP COMPOSITION
+============================================= -->
+<section class="section" id="composition" aria-label="Состав АТП ТермаРОН">
+  <div class="container">
+    <div class="comp__grid">
+      <div class="comp__img img-ph fade-up" role="img" aria-label="Фото сборки АТП-ТермаРОН" style="min-height: 100px;">
+        <svg class="img-ph__icon" width="56" height="56" viewBox="0 0 56 56" fill="none">
+          <rect x="10" y="8" width="36" height="40" rx="4" stroke="#4a6080" stroke-width="2"/>
+          <rect x="18" y="16" width="20" height="6" rx="2" stroke="#4a6080" stroke-width="1.5"/>
+          <rect x="18" y="26" width="20" height="6" rx="2" stroke="#4a6080" stroke-width="1.5"/>
+          <rect x="18" y="36" width="12" height="4" rx="2" stroke="#4a6080" stroke-width="1.5"/>
+        </svg>
+        Фото сборки АТП-ТермаРОН
+      </div>
+      <div class="fade-up">
+        <span class="eyebrow">Состав</span>
+        <h2 style="margin-bottom:28px;">Автономный тепловой пункт АТП-ТермаРОН</h2>
+        <div class="comp__components" role="list" aria-label="Компоненты АТП">
+          <div class="comp__item" role="listitem">
+            <div class="comp__num" aria-hidden="true">1</div>
+            Молекулярный котёл АТМ-ТЕРМ
+          </div>
+          <div class="comp__item" role="listitem">
+            <div class="comp__num" aria-hidden="true">2</div>
+            Блок автоматики и электроники
+          </div>
+          <div class="comp__item" role="listitem">
+            <div class="comp__num" aria-hidden="true">3</div>
+            Пластинчатый теплообменник
+          </div>
+          <div class="comp__item" role="listitem">
+            <div class="comp__num" aria-hidden="true">4</div>
+            Циркуляционный насос
+          </div>
+        </div>
+        <div class="comp__notes">
+          <div class="comp__note">АТМ-ТЕРМ соединяется с циркуляционным насосом и пластинчатым теплообменником сантехническими соединениями.</div>
+          <div class="comp__note">Для качественной передачи теплоносителя после теплообменника требуется установить гидрострелку, гидравлический распределитель.</div>
+          <div class="comp__note">Для обеспечения ГВС требуется установить бойлер косвенного нагрева.</div>
+          <div class="comp__note">В таком модуле сборки молекулярный генератор тепловой энергии АТМ-ТЕРМ обеспечит генерацию тепла и горячего водоснабжения с высокой экономией энергоресурса.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 10 — MODEL LINEUP
+============================================= -->
+<section class="section section--light" id="lineup" aria-label="Линейка моделей АТМ-ТЕРМ">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Линейка</span>
+      <h2>Модульная конструкция АТМ-ТЕРМ</h2>
+    </div>
+    <p class="lineup__sub fade-up">
+      Количество модулей АТМ-ТЕРМ рассчитывается в зависимости от площади здания.
+    </p>
+    <div class="lineup__grid">
+      <div class="lineup-card fade-up">
+        <div class="lineup-card__head">
+          <div class="lineup-card__model">АТМ-ТЕРМ-1Ф</div>
+          <div class="lineup-card__area">Площадь: до 100 м²</div>
+        </div>
+        <div class="lineup-card__body">
+          <div class="lineup-specs">
+            <div class="lineup-spec">
+              <span class="lineup-spec__label">Тепловая мощность</span>
+              <span class="lineup-spec__val">15 кВт</span>
+            </div>
+            <div class="lineup-spec">
+              <span class="lineup-spec__label">Затраты электроэнергии</span>
+              <span class="lineup-spec__val">5 кВт</span>
+            </div>
+            <div class="lineup-spec">
+              <span class="lineup-spec__label">Режим догрева</span>
+              <span class="lineup-spec__val">1,5 – 2 кВт/ч</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lineup-card fade-up">
+        <div class="lineup-card__head">
+          <div class="lineup-card__model">АТМ-ТЕРМ-2Ф</div>
+          <div class="lineup-card__area">Площадь: до 250 м²</div>
+        </div>
+        <div class="lineup-card__body">
+          <div class="lineup-specs">
+            <div class="lineup-spec">
+              <span class="lineup-spec__label">Тепловая мощность</span>
+              <span class="lineup-spec__val">30 кВт</span>
+            </div>
+            <div class="lineup-spec">
+              <span class="lineup-spec__label">Затраты электроэнергии</span>
+              <span class="lineup-spec__val">10 кВт</span>
+            </div>
+            <div class="lineup-spec">
+              <span class="lineup-spec__label">Режим догрева</span>
+              <span class="lineup-spec__val">5 – 6 кВт/ч</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lineup-card fade-up">
+        <div class="lineup-card__head">
+          <div class="lineup-card__model">АТМ-ТЕРМ-3Ф</div>
+          <div class="lineup-card__area">Площадь: до 1 000 м²</div>
+        </div>
+        <div class="lineup-card__body">
+          <div class="lineup-specs">
+            <div class="lineup-spec">
+              <span class="lineup-spec__label">Тепловая мощность</span>
+              <span class="lineup-spec__val">100 кВт</span>
+            </div>
+            <div class="lineup-spec">
+              <span class="lineup-spec__label">Затраты электроэнергии</span>
+              <span class="lineup-spec__val">30 кВт</span>
+            </div>
+            <div class="lineup-spec">
+              <span class="lineup-spec__label">Режим догрева</span>
+              <span class="lineup-spec__val">10 – 15 кВт/ч</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 11 — MODULAR SOLUTIONS
+============================================= -->
+<section class="section" id="modular" aria-label="Модульные решения на базе ТермаРОН">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Форматы поставки</span>
+      <h2>Модульные решения на базе ТермаРОН</h2>
+    </div>
+    <div class="modular__grid">
+      <div class="fade-up">
+        <p class="modular__intro">
+          На базе ТермаРОН компания разрабатывает модульные решения для объектов, не имеющих специализированных технических помещений. В зависимости от технических требований объекта и необходимой тепловой нагрузки возможно исполнение в двух форматах.
+        </p>
+        <div class="modular__formats">
+          <div class="modular-format">
+            <h4>Переносные котловые модули</h4>
+            <p>Подходят для размещения на объектах с ограничениями по помещению. Формируются под индивидуальные требования заказчика. Имеют встроенную систему отопления и ГВС. Основание под ЕВРО поддон — 800×1200 мм, что упрощает транспортировку.</p>
+            <div class="modular-format__tags">
+              <span class="tag-pill">10 – 100 кВт</span>
+              <span class="tag-pill">3 – 30 кВт потребление</span>
+              <span class="tag-pill">800×1200 мм</span>
+            </div>
+          </div>
+          <div class="modular-format">
+            <h4>Блочно-модульные котельные</h4>
+            <p>Для объектов с особыми техническими требованиями и высокими тепловыми нагрузками. Возможна реализация проектов любой сложности.</p>
+            <div class="modular-format__tags">
+              <span class="tag-pill">200 кВт – 5 МВт</span>
+              <span class="tag-pill">Под заказ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modular__imgs fade-up">
+        <div class="modular__img img-ph" role="img" aria-label="Переносной котловой модуль" style="min-height:80px;">
+          <svg class="img-ph__icon" width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="4" y="8" width="28" height="20" rx="3" stroke="#5a7090" stroke-width="1.8"/><rect x="10" y="28" width="16" height="4" rx="1" stroke="#5a7090" stroke-width="1.5"/></svg>
+          Переносной котловой модуль
+        </div>
+        <div class="modular__img img-ph" role="img" aria-label="Блочно-модульная котельная" style="min-height:80px;">
+          <svg class="img-ph__icon" width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="2" y="6" width="32" height="24" rx="3" stroke="#5a7090" stroke-width="1.8"/><rect x="8" y="12" width="8" height="12" rx="1" stroke="#5a7090" stroke-width="1.5"/><rect x="20" y="12" width="8" height="12" rx="1" stroke="#5a7090" stroke-width="1.5"/></svg>
+          Блочно-модульная котельная
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 12 — CONTACTS
+============================================= -->
+<footer class="contacts" id="contacts" aria-label="Контакты">
+  <div class="container">
+    <div class="contacts__grid">
+      <div class="contacts__head fade-up">
+        <span class="eyebrow eyebrow--dim">Контакты</span>
+        <h2>Получите консультацию и подбор решения</h2>
+        <p>Расскажите о вашем объекте — рассчитаем оптимальное решение и стоимость.</p>
+      </div>
+      <div class="fade-up">
+        <div class="contacts__items">
+          <div class="contacts__item">
+            <div class="contacts__item-ico" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 4h12a1 1 0 011 1v2L10 12 3 7V5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 7v9a1 1 0 001 1h12a1 1 0 001-1V7" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="contacts__item-label">Email</div>
+              <div class="contacts__item-val"><a href="mailto:stumer@mail.ru">stumer@mail.ru</a></div>
+            </div>
+          </div>
+          <div class="contacts__item">
+            <div class="contacts__item-ico" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 3h4l2 5-2 2a11 11 0 005 5l2-2 5 2v4a2 2 0 01-2 2C7.6 19 1 12.4 1 5a2 2 0 012-2h1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="contacts__item-label">Телефон</div>
+              <div class="contacts__item-val">
+                <a href="tel:+79324781253">+7 (932) 478-12-53</a>
+              </div>
+            </div>
+          </div>
+          <div class="contacts__item">
+            <div class="contacts__item-ico" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 3h4l2 5-2 2a11 11 0 005 5l2-2 5 2v4a2 2 0 01-2 2C7.6 19 1 12.4 1 5a2 2 0 012-2h1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="contacts__item-label">Телефон (офис)</div>
+              <div class="contacts__item-val">
+                <a href="tel:+73452495108">+7 (3452) 49-51-08</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn--primary btn--lg contacts__cta" onclick="openModal('contacts')">
+          Оставить заявку
+        </button>
+      </div>
+    </div>
+    <div class="contacts__footer-bar">
+      <div class="contacts__footer-logo">Терма<span>РОН</span></div>
+      <div>© 2025 ЭкоМИРТ. Автономный тепловой пункт ТермаРОН.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- =============================================
+     MODAL
+============================================= -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" id="modal">
+    <button class="modal__close" id="modalClose" aria-label="Закрыть форму">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+
+    <!-- Form state -->
+    <div id="modalFormState">
+      <div class="modal__title" id="modalTitle">Оставить заявку</div>
+      <div class="modal__sub">Оставьте контакты — свяжемся и подберём решение для вашего объекта.</div>
+      <form class="modal__form" id="modalForm" novalidate>
+        <div class="form-field" id="fieldName">
+          <label for="inputName">Ваше имя</label>
+          <input type="text" id="inputName" name="name" placeholder="Иван Иванов" autocomplete="name">
+          <span class="field-err" id="errName">Пожалуйста, введите ваше имя</span>
+        </div>
+        <div class="form-field" id="fieldPhone">
+          <label for="inputPhone">Номер телефона</label>
+          <input type="tel" id="inputPhone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+          <span class="field-err" id="errPhone">Пожалуйста, введите корректный номер телефона</span>
+        </div>
+        <button type="submit" class="btn btn--primary modal__btn">Отправить заявку</button>
+      </form>
+      <p class="modal__privacy">Нажимая кнопку, вы соглашаетесь на обработку персональных данных в соответствии с политикой конфиденциальности.</p>
+    </div>
+
+    <!-- Success state -->
+    <div class="modal__success" id="modalSuccess">
+      <div class="modal__success-ico" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16l8 8 12-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Заявка отправлена!</h3>
+      <p>Мы свяжемся с вами в ближайшее время для консультации и подбора решения.</p>
+    </div>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+<!-- =============================================
+     JAVASCRIPT
+============================================= -->
+
+</body>
+</html>
