@@ -127,7 +127,7 @@
   const dotsWrap = document.getElementById('casesDots');
   const btnPrev  = document.getElementById('casesPrev');
   const btnNext  = document.getElementById('casesNext');
-  const TOTAL    = 6;
+  const TOTAL    = 2;
   let current    = 0;
   let startX     = 0;
   let isDragging = false;

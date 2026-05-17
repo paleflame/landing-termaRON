@@ -96,15 +96,21 @@
     /* ===========================================
        IMAGE PLACEHOLDER
     =========================================== */
-    .img-ph {
-      background: linear-gradient(135deg, #c5d0e0 0%, #8fa5c0 100%);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      color: #5a7090; font-size: 13px; font-weight: 500;
-      text-align: center; gap: 10px;
-      border-radius: var(--radius-lg);
+    .hero__img img,
+    .case-card__img,
+    .comp__img,
+    .modular__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+      display: block;
     }
-    .img-ph__icon { opacity: 0.5; }
+
+    .comp__img{
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+    
+    }
 
     /* ===========================================
        NAVBAR
@@ -142,13 +148,19 @@
     }
     /* mobile nav drawer */
     .navbar__drawer {
-      display: none;
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--navy-dark); z-index: 999;
+      display: flex;
       flex-direction: column; align-items: center; justify-content: center;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--navy-dark); z-index: 1001;
       gap: 32px;
+      opacity: 0; visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
     }
-    .navbar__drawer.open { display: flex; }
+    .navbar__drawer.open {
+      opacity: 1; visibility: visible;
+      transform: translateY(0);
+    }
     .navbar__drawer a {
       color: #fff; font-size: 22px; font-weight: 700;
       transition: color var(--tr);
@@ -382,7 +394,7 @@
     .case-card__img { min-height: 300px; }
     .case-card__body {
       padding: 40px 36px;
-      display: flex; flex-direction: column; justify-content: center;
+      display: flex; flex-direction: column; justify-content: start;
     }
     .case-card__num {
       font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
@@ -413,7 +425,7 @@
 
     .cases__controls {
       display: flex; align-items: center;
-      justify-content: space-between; margin-top: 24px;
+      justify-content: center; margin-top: 20px;
     }
     .cases__dots { display: flex; gap: 8px; align-items: center; }
     .cases__dot {
@@ -422,14 +434,17 @@
       transition: background var(--tr), width var(--tr);
     }
     .cases__dot.active { background: var(--navy); width: 24px; }
-    .cases__arrows { display: flex; gap: 10px; }
+    .cases__arrows { display: none; }
     .cases__arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
       width: 44px; height: 44px; border-radius: var(--radius);
       border: 2px solid var(--border); background: #fff;
       display: flex; align-items: center; justify-content: center;
-      cursor: pointer; color: var(--navy);
+      cursor: pointer; color: var(--navy); z-index: 2;
       transition: background var(--tr), border-color var(--tr), color var(--tr);
     }
+    .cases__arrow--prev { left: -21px; }
+    .cases__arrow--next { right: -21px; }
     .cases__arrow:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
     .cases__arrow:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
 
@@ -726,8 +741,17 @@
 
       /* cases */
       .case-card { grid-template-columns: 1fr; }
-      .case-card__img { min-height: 220px; max-height: 260px; }
+      .case-card__img { min-height: 220px; max-height: 220px; }
       .case-card__body { padding: 24px 20px; }
+      .cases__arrow {
+        background: transparent; border: none;
+        color: var(--navy); width: 40px; height: 56px;
+        filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
+      }
+      .cases__arrow svg { width: 40px; height: 40px; }
+      .cases__arrow:hover { background: transparent; color: var(--amber); border: none; }
+      .cases__arrow--prev { left: -21px; }
+      .cases__arrow--next { right: -21px; }
 
       /* numbers */
       .numbers__grid { grid-template-columns: 1fr; gap: 36px; }
